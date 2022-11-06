@@ -1,0 +1,19 @@
+<div id="movie">
+  <div>
+    <h2>You have logged in successfully!</h2>
+  </div>
+  <ul class="list-group">
+    <li
+      class="list-group-item"
+      style="cursor: pointer"
+      *ngFor="let movie of movies"
+    >
+      <div>
+        <p><strong><u>{{ movie.title }}</u></strong></p>
+        <p>Released: {{ movie.year }}</p>
+        <p>Director: {{ movie.director }}</p>
+        <p>Starring: {{ movie.actors }}</p>
+      </div>
+    </li>
+  </ul>
+</div>
