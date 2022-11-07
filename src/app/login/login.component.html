@@ -1,28 +1,28 @@
-<router-outlet></router-outlet>
-<div class="content" role="main">
+
+<div class="content" role="main" *ngIf="!isLoggedIn">
   <div class="container">
     <div class="screen">
       <div class="screen__content">
         <form class="login">
           <div class="login__field">
             <i class="login__icon fas fa-user"></i>
-            <input id="username" type="text" class="login__input" placeholder="User name" >
+            <input id="username" type="text" class="login__input" placeholder="User name" (keyup)="onKeyUp($event)">
           </div>
           <div class="login__field">
             <i class="login__icon fas fa-lock"></i>
-            <input id="pwd" type="password" class="login__input" placeholder="Password" >
+            <input id="pwd" type="password" class="login__input" placeholder="Password" (keyup)="onKeyUp($event)">
           </div>
-          <p *ngIf="errorCondition" style="color: red;">{{ error }}</p>
+          <p *ngIf="errorCondition; else elseBlock" style="color: red;">{{ error }}</p>
+          <ng-template #elseBlock><p>&nbsp;</p></ng-template>
 
-          <a href="home">
           <button
+            *ngIf="canShowLoginButton"
             class="button login__submit"
             (click)="onClick()"
           >
             <span class="button__text">Log In Now</span>
             <i class="button__icon fas fa-chevron-right"></i>
           </button>
-          </a>
         </form>
       </div>
       <div class="screen__background">

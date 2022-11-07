@@ -1,0 +1,10 @@
+.text-right {
+  text-align: right;
+  position: relative;
+}
+
+div#movie {
+  padding: 30px;
+  width: 60vw;
+  margin: auto;
+}

@@ -1,23 +1,25 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
+import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { ListingComponent } from './listing/listing.component';
-import { HomeComponent } from './home/home.component';
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    ListingComponent,
-    HomeComponent
+    ListingComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
+    RouterModule.forRoot([
+      {path: '', component: LoginComponent},
+      {path: 'movies-list', component: ListingComponent},
+      {path: 'login', component: LoginComponent},
+    ]),
     FormsModule
   ],
   providers: [],
